@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "src": "/views/(.*)", "dest": "/views/$1" },
+    { "src": "/(.*)", "dest": "/index.cjs" }
+  ],
+  "builds": [
+    { "src": "index.cjs", "use": "@vercel/node" }
+  ]
+}
