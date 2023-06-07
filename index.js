@@ -23,6 +23,8 @@ import ProjectRoute from "./Routes/ProjectRoute.js";
 import TaskRoute from "./Routes/TaskRoute.js";
 import morgan from "morgan";
 import { VerifyMail } from "./Controllers/AuthController.js";
+import { createServer } from "http";
+import { Server } from "socket.io";
 import path from "path";
 
 dotenv.config();
@@ -56,7 +58,8 @@ const server = app.listen(port, function () {
   console.log(`Server started on port ${port}!`);
 });
 
-const io = require("socket.io")(server, {
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
   pingTimeout: 60000,
   cors: {
     origin: "http://localhost:3000",
