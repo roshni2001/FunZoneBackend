@@ -53,7 +53,7 @@ export const sendVerifyMail = async (username, email, userId) => {
       from: "noorulainnoor2001@gmail.com",
       to: email,
       subject: "FunZone Account Verification",
-      html: `<p> Hi ${username}, Please click <a href="https://fun-zone-backend.vercel.app/verify/${userId}">here</a> to verify your email address.</p>`,
+      html: `<p> Hi ${username}, Please click <a href="http://localhost:5000/verify/${userId}">here</a> to verify your email address.</p>`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -72,7 +72,7 @@ export const VerifyMail = async (req, res) => {
       { _id: req.params.id },
       { $set: { isVerified: true } }
     );
-    res.render("email-verified");
+    return res.status(200).json("Verification Completed!");
 
     // console.log(verify);
   } catch (error) {
