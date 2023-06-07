@@ -29,9 +29,7 @@ dotenv.config();
 const app = express();
 const mongoURI = process.env.DATABASE;
 
-// Get the directory name using the current module's URL
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 app.get("/", (req, res) => {
   app.use(express.static(path.resolve(__dirname, "client", "build")));
@@ -40,8 +38,6 @@ app.get("/", (req, res) => {
 
 const port = process.env.PORT || 5001;
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 app.use("/images", express.static("images"));
