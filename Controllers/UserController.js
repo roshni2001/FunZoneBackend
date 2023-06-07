@@ -486,7 +486,7 @@ export const sendWarningMail = async (username, email) => {
     });
     const mailOptions = {
       from: "noorulainnoor2001@gmail.com",
-      to: "roshnikhalid13@gmail.com",
+      to: `${email}`,
       subject: "Warning! FunZone Notice",
       html: `<p>Dear ${username}, we kindly request that you refrain from posting any incorrect or sensitive content on our site. Failure to comply may result in the deactivation of your account, and repeated violations could lead to permanent account deletion. Let's keep FunZone a safe and enjoyable space for all.<br> If you didn't violate FunZone rules then you can ignore this email.</p>`,
     };
